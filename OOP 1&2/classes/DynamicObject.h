@@ -4,9 +4,7 @@
 
 class DynamicObject{
 
-    protected:
-        /*protected for the constructor works because DynamicObject is a pure virtual class 
-        and therefore won't be created as a object istself*/
+    public:
         DynamicObject(){
             std::cout << "A dynamic object has been created" << std::endl;
         }
