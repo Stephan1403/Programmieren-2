@@ -1,8 +1,9 @@
 #pragma once
 
 #include <string>
+#include "DynamicObject.h"
 
-class Animal{
+class Animal : public DynamicObject{
 
     public:
         //constructor
