@@ -15,6 +15,7 @@ class Animal : public DynamicObject{
         //other methods
         bool init();
         void update();
+        void do_nothing();
 
     protected:
         std::string name; 

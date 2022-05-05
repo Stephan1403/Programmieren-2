@@ -24,3 +24,8 @@ bool Animal::init(){
 void Animal::update(){
     std::cout << "something has changed" << std::endl;
 }
+
+void Animal::do_nothing(){
+    std::cout << "I have an incapiability to do anything" << std::endl;
+}
+

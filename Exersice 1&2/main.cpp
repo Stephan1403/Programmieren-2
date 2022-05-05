@@ -31,6 +31,20 @@ int main(){
     for(int i=0; i<2; i++){
         objects.at(i)->init();
         objects.at(i)->update();
+
+        Animal* animal = dynamic_cast<Animal*>(objects.at(i));
+        Dog* dog = dynamic_cast<Dog*>(objects.at(i));
+        Dragon* dragon = dynamic_cast<Dragon*>(objects.at(i));
+
+        if(animal){
+            animal->do_nothing();
+        }else if(dog){
+            dog->bark();
+        }else if(dragon){
+            dragon->spit_fire();
+        }else{
+            std::cout << "Your dynamic object does not contain any other object" << std::endl;
+        }
     }
 
 
