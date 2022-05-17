@@ -13,6 +13,7 @@ class array{
 
         //operatoren überladung
         void operator+(array& a);
+        void operator-(array& a);
 
 
     private:
