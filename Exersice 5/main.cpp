@@ -22,6 +22,6 @@ int main(){
     a->set(1, 2);
     a->set(2, 3);
 
-
+    a->operator++(b);
 
 }
