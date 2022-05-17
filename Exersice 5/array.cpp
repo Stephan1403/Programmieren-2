@@ -115,3 +115,23 @@ void array::operator*(array& a){
         }
     }
 }
+
+void array::operator<<(const array& a){
+    for(int i=0; i<this->getSize(); i++){
+        std::cout << "Array[" << i << "] = " << this->get(i) << std::endl;
+    }
+}
+
+//increment
+void array::operator++(int x){
+    for(int i=0; i<this->getSize(); i++){
+        this->set(i, this->get(i)+x);
+    }
+}
+
+//decrement
+void array::operator--(int x){
+    for(int i=0; i<this->getSize(); i++){
+        this->set(i, this->get(i)-x);
+    }
+}

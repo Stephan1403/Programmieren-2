@@ -15,6 +15,9 @@ class array{
         void operator+(array& a);
         void operator-(array& a);
         void operator*(array& a);
+        void operator<<(const array& a);
+        void operator++(int x);
+        void operator--(int x);
 
 
     private:
