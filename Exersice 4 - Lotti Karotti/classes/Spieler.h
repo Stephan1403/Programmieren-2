@@ -1,13 +1,14 @@
 #pragma once 
     #include <iostream>
     #include <string>
-    //#include "Spielfeld.h"
     #include "Hase.h"
 
 
 class Spieler{
 
     public:
+        Hase* hasen;    //TODO: move to private 
+
         //constructors
         Spieler(); //dummy constructor for dynamic creation
         Spieler(std::string name);
@@ -15,10 +16,9 @@ class Spieler{
         //other methos
         void draw_card();
 
+
     private:
         //variables
         std::string name;
-        Hase* hasen;
-
 
 };

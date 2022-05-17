@@ -11,6 +11,8 @@ Spieler::Spieler(){
 
 Spieler::Spieler(std::string name){
     this->name = name;
+    this->hasen = new Hase[4];
+    
 }
 
 //draw card
@@ -20,9 +22,26 @@ void Spieler::draw_card(){
     int card = rand()%4;
 
     if(card == 0){
-        //s->turn();
+        //TODO: turn field from here
+        std::cout << "!!! Please turn the field !!!" << std::endl;
     }else{
-        //move hase, check for legal moves create new one in case
+
+        //choose right hase
+        int index_hase = -1;
+        int first_hase_pos = -1;
+
+        for(int i=0; i<4; i++){
+            //set living hase with highest pos
+            if(this->hasen[i].is_alive()){
+                if(this->hasen[i].get_pos() > first_hase_pos){
+                    first_hase_pos = this->hasen[i].get_pos();
+                    index_hase = i;
+                }
+            }
+        }
+        
+
+
     }
 
 }
