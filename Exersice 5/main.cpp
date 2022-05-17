@@ -22,6 +22,12 @@ int main(){
     a->set(1, 2);
     a->set(2, 3);
 
-    a->operator++(b);
+    std::cout << a;
+
+    array* b = new array(2);
+    b->set(0, 1);
+    b->set(1, 2);
+
+    *a + *b;
 
 }
