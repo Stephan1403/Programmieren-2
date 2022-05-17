@@ -44,5 +44,22 @@ int array::getSize(){
     return this->size;
 }
 
+//opertoren überladung
+void array::operator+(array& a){
+
+    //get size of higher array
+    int smaller = a.getSize();
+    if( this->getSize() < smaller)
+        smaller = this->getSize();
+
+    for(int i=0; i<smaller; i++){
+        int value = this->get(i) + a.get(i);
+        std::cout << "Array[" << i << "] = " << value << std::endl;
+    }
+
+
+
+}
+
 
 

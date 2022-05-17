@@ -11,6 +11,10 @@ class array{
         void resize(int a_size);
         int getSize();
 
+        //operatoren überladung
+        void operator+(array& a);
+
+
     private:
         int size;   //values fitting in the array
         int* values;    //create new array
