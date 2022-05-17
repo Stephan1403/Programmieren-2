@@ -66,30 +66,52 @@ void array::operator+(array& a){
             else    
                 std::cout << "Array[" << i << "] = " << a.get(i) << std::endl;
         }
-
-
-
     }
-
-
-
-
-    int smaller = a.getSize();
-    if( this->getSize() < smaller)
-        smaller = this->getSize();
-
-    for(int i=0; i<smaller; i++){
-        int value = this->get(i) + a.get(i);
-        std::cout << "Array[" << i << "] = " << value << std::endl;
-    }
-
-
 
 }
 
 void array::operator-(array& a){
+    int smaller, higher;
+    if(this->getSize() > a.getSize())
+        smaller = a.getSize(), higher = this->getSize();
+    else    
+        smaller = this->getSize(), higher = a.getSize();
 
+
+    for(int i=0; i<higher; i++){
+
+        if(i<smaller){
+            int value = this->get(i) - a.get(i);
+            std::cout << "Array[" << i << "] = " << value << std::endl;
+        }else{
+
+            if(this->getSize() > a.getSize())
+                std::cout << "Array[" << i << "] = " << this->get(i) << std::endl;
+            else    
+                std::cout << "Array[" << i << "] = " << a.get(i) << std::endl;
+        }
+    }
 }
 
+void array::operator*(array& a){
+    int smaller, higher;
+    if(this->getSize() > a.getSize())
+        smaller = a.getSize(), higher = this->getSize();
+    else    
+        smaller = this->getSize(), higher = a.getSize();
 
 
+    for(int i=0; i<higher; i++){
+
+        if(i<smaller){
+            int value = this->get(i) * a.get(i);
+            std::cout << "Array[" << i << "] = " << value << std::endl;
+        }else{
+
+            if(this->getSize() > a.getSize())
+                std::cout << "Array[" << i << "] = " << this->get(i) << std::endl;
+            else    
+                std::cout << "Array[" << i << "] = " << a.get(i) << std::endl;
+        }
+    }
+}
