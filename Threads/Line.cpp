@@ -1,15 +1,33 @@
+#include <iostream>
 #include <stdio.h>
 #include <string>
+#include <unistd.h>
+
+#define gotoxy(x,y) printf("\033[%d;%dH", (y), (x))
 
 //a line of either text or stars and whitspaces
 class Line{
 
     public:
-        Line(int l, bool direc_is_right=true){
+        Line(int l, std::string text="", bool direc_is_right=true){
+
+            //make sure length isn't too short
+            if(!text.empty()){
+                if(text.length() > l)
+                    l = text.length();
+            }
+
+            //set variables
             this->length = l;
             this->direc_is_right = direc_is_right;
 
             values = new char[l];
+
+            //init values
+            if(text.empty())
+                this->set_stars();
+            else
+                this->set_word(text);
         }
 
 
@@ -23,9 +41,25 @@ class Line{
             return frame;
         }
 
+        //TODO: pass thread
+        //print animation frame for frame
+        void print_animation(int line, int t=50){
+
+            while(true){
+                gotoxy(1, line);
+
+                std::cout << this->get_frame() << std::endl;
+                this->next();
+
+                usleep(1000 * t);
+            }
+
+        }
+
 
         //set all stars and white spaces
         void set_stars(){
+            this->set_d_left();                     //stars direction is by default left
 
             for(int i=0; i<this->length; i++){
                 //iterate through array
@@ -33,6 +67,20 @@ class Line{
                     this->values[i] = '*';
                 else
                     this->values[i] = ' ';
+            }
+        }
+
+
+        //set word
+        void set_word(std::string word){
+
+            for(int i=0; i<this->length; i++){
+                if(i<word.length()){
+                    this->values[i] = word.at(i);
+                    continue;
+                }
+                this->values[i] = '*';
+
             }
         }
 
