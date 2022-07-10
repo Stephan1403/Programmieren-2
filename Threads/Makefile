@@ -1,3 +1,3 @@
 test: main.cpp Line.cpp
 	clear
-	clang++ main.cpp Line.cpp -o main
+	clang++ -std=c++11 main.cpp Line.cpp -o main
