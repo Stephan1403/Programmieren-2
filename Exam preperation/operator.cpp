@@ -34,9 +34,25 @@ class Vector_2d{
             return stream;
         }
 
+        /*
+        void operator++(int){
+            this->values[0]++;
+            this->values[1]++;
+        }
+        */
+
+       /*
+        void operator += (const Vector_2d& a){
+            this->values[0] = this->values[0] + a.values[0];
+            this->values[1] = this->values[1] + a.values[1];
+
+        }
+        */
 
 
         friend Vector_2d operator+ (const Vector_2d& a, const Vector_2d& b);
+        friend Vector_2d operator++ (const Vector_2d&a , int);
+        friend void operator+= (Vector_2d& a, const Vector_2d& b);
 
     private:
         int values[2];
@@ -49,26 +65,37 @@ Vector_2d operator+ (const Vector_2d& a, const Vector_2d& b){
     c.values[1] = b.values[1] + a.values[1];
 
     return c;
-
 }
 
 
 
 
+Vector_2d operator++ (const Vector_2d& a, int){
+    Vector_2d b(0, 0);
+    b.values[0]++;
+    b.values[1]++;
+    return b;
+}
+
+
+void operator+= (Vector_2d& a, const Vector_2d& b){
+    a.values[0] = a.values[0] + b.values[0];
+    a.values[1] = a.values[1] + b.values[1];
+}
+
+
+
 int main(){
-    Vector_2d a(1, 0);
-    Vector_2d b(0, 1);
+    Vector_2d a(2, 4);
+    Vector_2d b(3, 1);
 
-    std::cout << a << std::endl;
+    std::cout << "a= " << a << std::endl;
+    std::cout << "b= " << b << std::endl;
 
-    std::cout << "Scalar a and b: " << a*b << std::endl;
+    a+=b;
 
-    printf("\n");
+    std::cout << "a= " << a << std::endl;
 
-    Vector_2d c = a + b;
-    
-    
-    std::cout << c << std::endl;
 
 
 }
